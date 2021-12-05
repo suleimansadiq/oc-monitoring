@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: cpu1-alert
+  namespace: nodejs-ex
+spec:
+  groups:
+  - name: CpuRule
+    rules:
+    - alert: Cpu1percent
+      expr: sum(container_memory_rss) / sum(machine_memory_bytes) > 0.3
+    for: 1m
+    labels:
+      secerity: critical
+    annotations:
+      message: CPU utilization is over 1 percent
