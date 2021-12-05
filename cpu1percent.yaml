@@ -11,6 +11,6 @@ spec:
       expr: sum(container_memory_rss) / sum(machine_memory_bytes) > 0.3
     for: 1m
     labels:
-      secerity: critical
+      severity: critical
     annotations:
       message: CPU utilization is over 1 percent
